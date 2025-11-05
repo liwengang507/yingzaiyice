@@ -1,0 +1,21 @@
+{
+  "file_path": "京氏易精粹全5册\\京氏易精粹  1  京氏易传、火珠林、黄金策.pdf",
+  "file_name": "京氏易精粹  1  京氏易传、火珠林、黄金策.pdf",
+  "raw_text": "\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f\f[General Information]\n书名=京氏易精粹  1  京氏易传、火珠林、黄金策\n作者=京房著\n页数=418\nSS号=12542760\nDX号=\n出版日期=2010.03\n出版社=华龄出版社\n\n\f",
+  "processed_text": "General Information 书名京氏易精粹 1 京氏易传火珠林黄金策 作者京房著 页数418 SS号12542760 DX号 出版日期201003 出版社华龄出版社",
+  "text_length": 88,
+  "image_count": 0,
+  "translated_text": "General Information 书名京氏易精粹 1 京氏易传火珠林黄金策 作者京房著 页数418 SS号12542760 DX号 出版日期201003 出版社华龄出版社",
+  "segments": [
+    "General Information 书名京氏易精粹 1 京氏易传火珠林黄金策 作者京房著 页数418 SS号12542760 DX号 出版日期201003 出版社华龄出版社"
+  ],
+  "qa_pairs": [
+    {
+      "id": "qa_0000",
+      "question": "第1段中的易经理论如何理解？",
+      "answer": "根据原文内容：General Information 书名京氏易精粹 1 京氏易传火珠林黄金策 作者京房著 页数418 SS号12542760 DX号 出版日期201003 出版社华龄出版社...",
+      "source_text": "General Information 书名京氏易精粹 1 京氏易传火珠林黄金策 作者京房著 页数418 SS号12542760 DX号 出版日期201003 出版社华龄出版社",
+      "segment_index": 0
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "total_files_processed": 8,
+  "total_qa_pairs": 15,
+  "output_directory": "knowledge_base",
+  "knowledge_base_file": "knowledge_base/complete_knowledge_base_cleaned.jsonl",
+  "cleaned_from_original": 223,
+  "removed_garbled": 208
+}

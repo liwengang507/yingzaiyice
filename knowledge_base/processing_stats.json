@@ -1,0 +1,6 @@
+{
+  "total_files_processed": 9,
+  "total_qa_pairs": 223,
+  "output_directory": "knowledge_base",
+  "knowledge_base_file": "knowledge_base\\complete_knowledge_base.jsonl"
+}
