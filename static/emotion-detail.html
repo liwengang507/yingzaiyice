@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情感测算 - 盈在易测系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "SimSun", Arial, sans-serif;
+            background: linear-gradient(135deg, #FFF8DC 0%, #FFE4B5 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8B0000 0%, #DAA520 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px 15px 0 0;
+            margin: -40px -40px 30px -40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 248, 220, 0.3);
+            border-radius: 10px;
+            border-left: 4px solid #DAA520;
+        }
+        
+        .content-section h2 {
+            color: #8B0000;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .content-section h3 {
+            color: #8B0000;
+            font-size: 20px;
+            margin: 20px 0 10px 0;
+        }
+        
+        .content-section p, .content-section li {
+            color: #654321;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        
+        .content-section ul {
+            margin-left: 30px;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #DAA520;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 0 10px;
+            background-color: #8B0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn:hover {
+            background-color: #A52A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #DAA520;
+            color: #654321;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>❤️ 情感测算</h1>
+            <p>传承千年智慧，服务现代生活</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>情感测算说明</h2>
+            <p>基于您刚才的占卜结果，我们将为您提供详细的情感测算分析。情感测算包括：</p>
+            <ul>
+                <li><strong>感情趋势：</strong>分析感情发展的方向和趋势</li>
+                <li><strong>性格匹配：</strong>评估双方性格的契合度和相处模式</li>
+                <li><strong>沟通建议：</strong>提供改善沟通和增进感情的方法</li>
+                <li><strong>关系维护：</strong>了解如何维护和深化感情关系</li>
+                <li><strong>未来展望：</strong>预测感情发展的可能走向</li>
+            </ul>
+        </div>
+        
+        <div class="content-section">
+            <h2>情感测算要点</h2>
+            
+            <h3>感情趋势分析</h3>
+            <p>根据当前卦象，您的感情发展建议：</p>
+            <ul>
+                <li>保持真诚相待，以心换心</li>
+                <li>顺其自然，不强求也不急躁</li>
+                <li>加强沟通，理解对方的需求</li>
+                <li>创造浪漫时刻，增进感情</li>
+                <li>尊重彼此独立，保持适当空间</li>
+            </ul>
+            
+            <h3>关系维护</h3>
+            <p>根据当前卦象，您的感情关系需要注意：</p>
+            <ul>
+                <li><strong>沟通之道：</strong>多倾听，少指责，用理解代替争执</li>
+                <li><strong>相处方式：</strong>求同存异，尊重彼此的差异</li>
+                <li><strong>情感表达：</strong>适时表达爱意，让对方感受到关怀</li>
+                <li><strong>矛盾处理：</strong>遇到分歧时冷静处理，寻找共同点</li>
+                <li><strong>未来规划：</strong>共同制定目标，携手向前</li>
+            </ul>
+            
+            <h3>性格匹配分析</h3>
+            <p>性格匹配建议：</p>
+            <ul>
+                <li>了解彼此的性格特点，找到互补之处</li>
+                <li>尊重对方的性格差异，不强求改变</li>
+                <li>发挥性格优势，共同成长</li>
+                <li>通过性格分析，找到最佳相处模式</li>
+            </ul>
+        </div>
+        
+        <div class="button-container">
+            <button class="btn" onclick="window.location.href='index.html'">返回首页</button>
+        </div>
+        
+        <div class="footer">
+            <p>©2025 盈在易测系统</p>
+            <p>传承千年智慧，服务现代生活</p>
+        </div>
+    </div>
+</body>
+</html>
+

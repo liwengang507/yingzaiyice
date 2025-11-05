@@ -137,8 +137,8 @@ class RAGKnowledgeBase:
 class IChingRAGSystem:
     """周易RAG问答系统"""
     
-    def __init__(self):
-        self.knowledge_base = RAGKnowledgeBase()
+    def __init__(self, knowledge_base_path: str = "knowledge_base"):
+        self.knowledge_base = RAGKnowledgeBase(knowledge_base_path=knowledge_base_path)
         self.prompt_template = AnswerWithRAGContextStringPrompt()
     
     def answer_question(self, question: str) -> Dict[str, Any]:

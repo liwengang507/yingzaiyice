@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>衍生提问 - 盈在易测系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", "SimSun", Arial, sans-serif;
+            background: linear-gradient(135deg, #FFF8DC 0%, #FFE4B5 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #8B0000 0%, #DAA520 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px 15px 0 0;
+            margin: -40px -40px 30px -40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .summary-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 248, 220, 0.3);
+            border-radius: 10px;
+            border-left: 4px solid #DAA520;
+        }
+        
+        .summary-section h2 {
+            color: #8B0000;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .summary-section p {
+            color: #654321;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        
+        .input-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            border: 2px solid #DAA520;
+        }
+        
+        .input-section label {
+            display: block;
+            color: #8B0000;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .input-section textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #DAA520;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+        
+        .input-section textarea:focus {
+            outline: none;
+            border-color: #8B0000;
+            box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 0 10px;
+            background-color: #8B0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .btn:hover {
+            background-color: #A52A2A;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.4);
+        }
+        
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .loading-container {
+            text-align: center;
+            padding: 60px 20px;
+            min-height: 300px;
+            display: none;
+        }
+        
+        .loading-container.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid rgba(139, 0, 0, 0.1);
+            border-top-color: #8B0000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 30px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #8B0000;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .result-section {
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 248, 220, 0.3);
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .result-section.active {
+            display: block;
+        }
+        
+        .result-section h2 {
+            color: #8B0000;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .result-section h3 {
+            color: #8B0000;
+            font-size: 20px;
+            margin: 20px 0 10px 0;
+        }
+        
+        .result-section p {
+            color: #654321;
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #DAA520;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #DAA520;
+            color: #654321;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💭 衍生提问</h1>
+            <p>传承千年智慧，服务现代生活</p>
+        </div>
+        
+        <!-- 上一次卦象结果摘要 -->
+        <div class="summary-section" id="summarySection">
+            <h2>上一次占卜结果摘要</h2>
+            <p id="summaryContent">正在加载...</p>
+        </div>
+        
+        <!-- 输入区域 -->
+        <div class="input-section">
+            <label for="questionInput">请输入你想进一步探讨的问题</label>
+            <textarea id="questionInput" placeholder="例如：我该如何抓住本卦中的机遇？我应该如何改善当前的感情状况？"></textarea>
+            <div style="text-align: center;">
+                <button class="btn" id="generateBtn" onclick="generateDeepResult()">生成深化结果</button>
+            </div>
+        </div>
+        
+        <!-- 加载提示 -->
+        <div class="loading-container" id="loadingContainer">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">正在生成深化解卦内容，请稍候…</div>
+        </div>
+        
+        <!-- 结果显示区域 -->
+        <div class="result-section" id="resultSection">
+            <h2>深化解卦结果</h2>
+            <div id="resultContent"></div>
+        </div>
+        
+        <!-- 返回按钮 -->
+        <div class="button-container">
+            <button class="btn" onclick="window.location.href='index.html'">返回首页</button>
+        </div>
+        
+        <div class="footer">
+            <p>©2025 盈在易测系统</p>
+            <p>传承千年智慧，服务现代生活</p>
+        </div>
+    </div>
+    
+    <script>
+        // 页面加载时从localStorage获取上一次卦象摘要
+        window.onload = function() {
+            const guaSummary = JSON.parse(localStorage.getItem('lastGuaSummary') || '{}');
+            if (guaSummary.guaName) {
+                const summaryHtml = `
+                    <p><strong>卦名：</strong>${guaSummary.guaName}</p>
+                    <p><strong>卦辞：</strong>${guaSummary.guaText}</p>
+                    <p><strong>象辞：</strong>${guaSummary.guaDescription}</p>
+                    <p><strong>占卜问题：</strong>${guaSummary.divinationEvent || '未指定'}</p>
+                `;
+                document.getElementById('summaryContent').innerHTML = summaryHtml;
+            } else {
+                document.getElementById('summaryContent').innerHTML = '<p>暂无上一次占卜结果</p>';
+            }
+        };
+        
+        // 生成深化结果
+        function generateDeepResult() {
+            const question = document.getElementById('questionInput').value.trim();
+            if (!question) {
+                alert('请输入您想探讨的问题！');
+                return;
+            }
+            
+            // 显示加载提示，隐藏结果区域
+            document.getElementById('loadingContainer').classList.add('active');
+            document.getElementById('resultSection').classList.remove('active');
+            document.getElementById('generateBtn').disabled = true;
+            
+            // 获取上一次的卦象摘要
+            const guaSummary = JSON.parse(localStorage.getItem('lastGuaSummary') || '{}');
+            
+            // 模拟API调用（实际应该调用后端API）
+            // 这里使用模拟数据，实际应该调用后端生成接口
+            setTimeout(function() {
+                // 生成深化结果
+                const result = generateDeepDivinationResult(guaSummary, question);
+                
+                // 隐藏加载提示，显示结果
+                document.getElementById('loadingContainer').classList.remove('active');
+                document.getElementById('resultSection').classList.add('active');
+                document.getElementById('resultContent').innerHTML = result;
+                document.getElementById('generateBtn').disabled = false;
+                
+                // 滚动到结果区域
+                document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+            }, 2000); // 模拟2秒生成时间
+        }
+        
+        // 生成深化解卦结果（模拟函数，实际应该调用后端API）
+        function generateDeepDivinationResult(guaSummary, question) {
+            // 这里应该调用后端API生成结果
+            // 目前使用模拟数据
+            return `
+                <h3>基于您的问题</h3>
+                <p><strong>您的问题：</strong>${question}</p>
+                <p><strong>基于卦象：</strong>${guaSummary.guaName || '未知'}</p>
+                
+                <h3>深化分析</h3>
+                <p>根据${guaSummary.guaName || '当前卦象'}的卦象分析，结合您提出的"${question}"这个问题，我们可以从以下角度进行深入探讨：</p>
+                
+                <h3>关键建议</h3>
+                <p>1. <strong>时机把握：</strong>根据卦象显示，当前是${guaSummary.guaName || '该卦象'}的关键时期，建议您抓住有利时机，但也要保持谨慎。</p>
+                <p>2. <strong>行动策略：</strong>针对您的问题，建议采取稳扎稳打的方式，不可急于求成。</p>
+                <p>3. <strong>注意事项：</strong>需要关注人际关系和沟通，寻求合作机会，同时保持积极心态。</p>
+                
+                <h3>进一步建议</h3>
+                <p>如果您想继续深入探讨，建议您可以：</p>
+                <ul style="margin-left: 30px; color: #654321; line-height: 1.8;">
+                    <li>从不同角度重新审视这个问题</li>
+                    <li>结合具体的时间节点进行规划</li>
+                    <li>考虑多方面的因素和影响</li>
+                    <li>保持理性思考，结合实际情况</li>
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>
+

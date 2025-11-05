@@ -25,8 +25,8 @@ from .utils import (
 class PredictionPipeline:
     """预测流水线"""
     
-    def __init__(self, data_dir="Purchase Redemption Data", use_gpu=True, 
-                 adjustment_factor=0.05, output_dir="output"):
+    def __init__(self, data_dir=None, use_gpu=True, 
+                 adjustment_factor=0.05, output_dir=None):
         """
         初始化预测流水线
         
@@ -36,6 +36,17 @@ class PredictionPipeline:
             adjustment_factor (float): 易经调整因子
             output_dir (str): 输出目录
         """
+        # 设置默认路径
+        if data_dir is None:
+            # 获取项目根目录
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            data_dir = os.path.join(os.path.dirname(base_dir), "Purchase Redemption Data")
+        
+        if output_dir is None:
+            # 获取项目根目录
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            output_dir = os.path.join(base_dir, "output")
+        
         self.data_dir = data_dir
         self.use_gpu = use_gpu
         self.adjustment_factor = adjustment_factor

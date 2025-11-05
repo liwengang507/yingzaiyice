@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 
 # 添加项目根目录到路径
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from api_config import APIConfig
+from .api_config import APIConfig
 
 # PDF处理
 from pdfminer.high_level import extract_text
